@@ -9,7 +9,7 @@ import { SystemRoles } from './enum/system-roles.enum';
 import { UserLoginDto } from './dtos/user-login.dto';
 import { ILogger } from '../logger/interfaces/logger.interface';
 
-@Controller('api/v1/auth')
+@Controller('auth')
 export class AuthController {
 	private readonly logger: ILogger;
 

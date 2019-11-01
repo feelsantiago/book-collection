@@ -1,10 +1,6 @@
 import { JwtService } from '@nestjs/jwt';
 import { Injectable } from '@nestjs/common';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
-import { SystemRoles } from './enum/system-roles.enum';
-import { JwtUser } from './interfaces/jwt-user.interface';
-import { JwtBroker } from './interfaces/jwt-broker.interface';
-import { JwtClient } from './interfaces/jwt-client.interface';
 import { RepositoryService } from '../database/repository.service';
 
 @Injectable()

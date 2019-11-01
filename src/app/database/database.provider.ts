@@ -13,7 +13,8 @@ export const databaseProviders = [
 			const connection = await mongoose.connect(configService.database, {
 				useNewUrlParser: true,
 				useFindAndModify: false,
-				useCreateIndex: true
+				useCreateIndex: true,
+				useUnifiedTopology: true
 			});
 			return connection;
 		},

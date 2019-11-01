@@ -1,21 +1,24 @@
 import { Provider } from '@nestjs/common';
 import { RepositoryService } from '../database/repository.service';
-import { UserRegisterDto } from './dtos/user-register.dto';
+import { SystemRoles } from './enum/system-roles.enum';
 
 export const authProviders: Array<Provider> = [
 	{
 		provide: 'SuperUserProvider',
 		useFactory: async (repositoryService: RepositoryService) => {
-			const found = await repositoryService.users.find({ email: 'super@user.com' });
+			const found = await repositoryService.users.findOne({ email: 'super@user.com' });
 			if (found) return found;
 
-			const superUser: UserRegisterDto = {
+			const superUser = {
 				email: 'super@user.com',
 				name: 'superUser',
-				password: 'super@man@91939'
+				password: 'super@man@91939',
+				role: SystemRoles.Admin,
+				active: true
 			};
 
-			return await repositoryService.users.create(superUser);
+			const result = await repositoryService.users.create(superUser);
+			return result;
 		},
 		inject: [ RepositoryService ]
 	}
