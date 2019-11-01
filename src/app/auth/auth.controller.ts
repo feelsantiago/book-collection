@@ -38,7 +38,7 @@ export class AuthController {
 			throw new BadRequestException('Invalid e-mail or password.');
 		}
 
-		const payload: JwtUser = { id: user._id, email: user.email, name: user.name, role: SystemRoles.Admin };
+		const payload: JwtUser = { id: user._id, email: user.email, name: user.name, role: user.role as SystemRoles };
 		const token = await this.authService.signIn(payload);
 
 		this.logger.info(`User Login by: ${info.email}`);
