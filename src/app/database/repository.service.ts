@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { User } from './interfaces/user.interface';
-import { Book } from './interfaces/book.schema';
+import { Book } from './interfaces/book.interface';
 
 // Interfaces
 
