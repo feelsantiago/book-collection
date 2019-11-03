@@ -1,10 +1,8 @@
 import { Controller, Body, Post, HttpCode, Get, BadRequestException } from '@nestjs/common';
-import { ConfigService } from 'src/app/config/config.service';
 import { RepositoryService } from 'src/app/database/repository.service';
 import { LoggerService } from 'src/app/logger/services/logger.service';
 import { AuthService } from './auth.service';
 import { JwtUser } from './interfaces/jwt-user.interface';
-import { JwtBroker } from './interfaces/jwt-broker.interface';
 import { SystemRoles } from './enum/system-roles.enum';
 import { UserLoginDto } from './dtos/user-login.dto';
 import { ILogger } from '../logger/interfaces/logger.interface';
@@ -38,7 +36,7 @@ export class AuthController {
 			throw new BadRequestException('Invalid e-mail or password.');
 		}
 
-		const payload: JwtUser = { id: user._id, email: user.email, name: user.name, role: SystemRoles.Admin };
+		const payload: JwtUser = { id: user._id, email: user.email, name: user.name, role: user.role as SystemRoles };
 		const token = await this.authService.signIn(payload);
 
 		this.logger.info(`User Login by: ${info.email}`);
