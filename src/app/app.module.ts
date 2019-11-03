@@ -3,6 +3,8 @@ import { DatabaseModule } from './database/database.module';
 import { LoggerModule } from './logger/logger.module';
 import { ConfigModule } from './config/config.module';
 import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
+import { BookModule } from './book/book.module';
 
 @Module({
 	imports: [
@@ -11,7 +13,9 @@ import { AuthModule } from './auth/auth.module';
 		ConfigModule,
 
 		// Api Modules
-		AuthModule
+		AuthModule,
+		UserModule,
+		BookModule
 	]
 })
 export class AppModule {}

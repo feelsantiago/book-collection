@@ -3,7 +3,7 @@ import { Connection } from 'mongoose';
 import { ConfigService } from '../config/config.service';
 import { User } from './interfaces/user.interface';
 import { UserSchema } from './schemas/user.schema';
-import { Book } from './interfaces/book.schema';
+import { Book } from './interfaces/book.interface';
 import { BookSchema } from './schemas/book.schema';
 
 export const databaseProviders = [
